@@ -10,9 +10,13 @@ license = "MIT"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
+[lib]
+name = "sage"
+path = "src/lib.rs"
+
 [[bin]]
 name = "sage"
-path = "src/main.rs"
+path = "src/bin/sage.rs"
 
 [dependencies]
 sage-core = { path = "../sage" }
