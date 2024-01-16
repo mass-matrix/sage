@@ -161,6 +161,12 @@ impl From<QuantOptions> for QuantSettings {
 }
 
 impl Input {
+    pub fn from_json(json_content: String) -> anyhow::Result<Self> {
+        return Ok(
+            serde_json::from_str(&json_content).with_context(|| "Failed to parse input JSON")?
+        );
+    }
+
     pub fn from_arguments(matches: ArgMatches) -> anyhow::Result<Self> {
         let path = matches
             .get_one::<String>("parameters")
